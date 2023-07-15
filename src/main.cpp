@@ -11,14 +11,14 @@
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {2, 5}
+  {-10, -2}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{-3, -4}
+  ,{9, 1}
 
   // IMU Port
-  ,21
+  ,6
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)
@@ -32,7 +32,7 @@ Drive chassis (
   //    (or gear ratio of tracking wheel)
   // eg. if your drive is 84:36 where the 36t is powered, your RATIO would be 2.333.
   // eg. if your drive is 36:60 where the 60t is powered, your RATIO would be 0.6.
-  ,1
+  ,2.333
 
   // Uncomment if using tracking wheels
   /*
@@ -160,8 +160,8 @@ void opcontrol() {
 
   while (true) {
 
-    chassis.tank(); // Tank control
-    // chassis.arcade_standard(ez::SPLIT); // Standard split arcade
+    // chassis.tank(); // Tank control
+    chassis.arcade_standard(ez::SPLIT); // Standard split arcade
     // chassis.arcade_standard(ez::SINGLE); // Standard single arcade
     // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
     // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
