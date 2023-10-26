@@ -1,5 +1,15 @@
 #include "main.h"
-
+#include "EZ-Template/util.hpp"
+#include "autons.hpp"
+#include "display/lv_objx/lv_btnm.h"
+#include "display/lv_objx/lv_imgbtn.h"
+#include "arm.hpp"
+#include "claw.hpp"
+#include "pros/adi.h"
+#include "pros/misc.h"
+#include "pros/misc.hpp"
+#include "pros/rtos.hpp"
+#include <sys/types.h>
 
 /////
 // For instalattion, upgrading, documentations and tutorials, check out website!
@@ -11,11 +21,11 @@
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {-10, -2}
+  {1}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{9, 1}
+  ,{-9}
 
   // IMU Port
   ,6
@@ -32,7 +42,7 @@ Drive chassis (
   //    (or gear ratio of tracking wheel)
   // eg. if your drive is 84:36 where the 36t is powered, your RATIO would be 2.333.
   // eg. if your drive is 36:60 where the 60t is powered, your RATIO would be 0.6.
-  ,2.333
+  ,1
 
   // Uncomment if using tracking wheels
   /*
@@ -66,8 +76,8 @@ void initialize() {
 
   // Configure your chassis controls
   chassis.toggle_modify_curve_with_controller(true); // Enables modifying the controller curve with buttons on the joysticks
-  chassis.set_active_brake(0); // Sets the active brake kP. We recommend 0.1.
-  chassis.set_curve_default(0, 0); // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)  
+  chassis.set_active_brake(0.1); // Sets the active brake kP. We recommend 0.1.
+  chassis.set_curve_default(0/15, 0.9999999); // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)  
   default_constants(); // Set the drive to your own constants from autons.cpp!
   exit_condition_defaults(); // Set the exit conditions to your own constants from autons.cpp!
 
@@ -169,6 +179,31 @@ void opcontrol() {
     // . . .
     // Put more user control code here!
     // . . .
+        //arm control
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+      armup(200);  // Intake forward if R2 is pressed
+    }
+    else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+      armdown(200); // Intake backward if R1 is pressed
+    }
+    else {
+      armStop();  // Stop intake
+      
+    }
+
+
+
+        //claw control
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+      clawclose(200);  // Intake forward if R2 is pressed
+    }
+    else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+      clawopen(200); // Intake backward if R1 is pressed
+    }
+    else {
+      clawStop();  // Stop intake
+      
+    }
 
     pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
