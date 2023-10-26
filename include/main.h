@@ -43,8 +43,6 @@
 //#include "pros/api_legacy.h"
 #include "EZ-Template/api.hpp"
 #include "autons.hpp"
-#include "arm.hpp"
-#include "claw.hpp"
 // More includes here...
 //
 // . . .
