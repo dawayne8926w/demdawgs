@@ -3,6 +3,7 @@
 #include "pros/motors.hpp"
 
 
+
 pros::Motor claw_motor(3, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);  // sets up the motor for the intake
 
 
