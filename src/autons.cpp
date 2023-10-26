@@ -1,6 +1,5 @@
 #include "EZ-Template/util.hpp"
 #include "main.h"
-#include "arm.cpp"
 #include "claw.hpp"
 #include "pros/motors.h"
 #include "pros/rtos.h"

@@ -3,7 +3,6 @@
 #include "autons.hpp"
 #include "display/lv_objx/lv_btnm.h"
 #include "display/lv_objx/lv_imgbtn.h"
-#include "arm.hpp"
 #include "claw.hpp"
 #include "pros/adi.h"
 #include "pros/misc.h"
@@ -179,17 +178,6 @@ void opcontrol() {
     // . . .
     // Put more user control code here!
     // . . .
-        //arm control
-        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      armup(200);  // Intake forward if R2 is pressed
-    }
-    else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      armdown(200); // Intake backward if R1 is pressed
-    }
-    else {
-      armStop();  // Stop intake
-      
-    }
 
 
 
