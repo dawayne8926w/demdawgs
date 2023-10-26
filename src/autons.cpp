@@ -1,5 +1,10 @@
+#include "EZ-Template/util.hpp"
 #include "main.h"
-
+#include "arm.cpp"
+#include "claw.hpp"
+#include "pros/motors.h"
+#include "pros/rtos.h"
+#include "pros/rtos.hpp"
 
 /////
 // For instalattion, upgrading, documentations and tutorials, check out website!
