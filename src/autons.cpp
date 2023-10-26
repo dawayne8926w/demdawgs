@@ -1,6 +1,7 @@
 #include "EZ-Template/util.hpp"
 #include "main.h"
 #include "claw.hpp"
+#include "clawv2.hpp"
 #include "pros/motors.h"
 #include "pros/rtos.h"
 #include "pros/rtos.hpp"

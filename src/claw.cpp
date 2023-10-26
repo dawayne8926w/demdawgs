@@ -4,7 +4,7 @@
 
 
 
-pros::Motor claw_motor(3, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);  // sets up the motor for the intake
+pros::Motor claw_motor(8, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);  // sets up the motor for the intake
 
 
 void clawclose(int speed){

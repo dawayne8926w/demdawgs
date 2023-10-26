@@ -4,6 +4,7 @@
 #include "display/lv_objx/lv_btnm.h"
 #include "display/lv_objx/lv_imgbtn.h"
 #include "claw.hpp"
+#include "clawv2.hpp"
 #include "pros/adi.h"
 #include "pros/misc.h"
 #include "pros/misc.hpp"
@@ -183,16 +184,15 @@ void opcontrol() {
 
         //claw control
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      clawclose(200);  // Intake forward if R2 is pressed
+      clawclose(50);  // Intake forward if R2 is pressed
     }
     else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      clawopen(200); // Intake backward if R1 is pressed
+      clawopen(50); // Intake backward if R1 is pressed
     }
     else {
       clawStop();  // Stop intake
       
     }
 
-    pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
-}
+  }
