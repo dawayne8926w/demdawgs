@@ -54,7 +54,6 @@ Drive chassis (
   // ,{-3, -4} // 3 wire encoder
   // ,-9 // Rotation sensor
   */
-
   // Uncomment if tracking wheels are plugged into a 3 wire expander
   // 3 Wire Port Expander Smart Port
   // ,1
@@ -206,4 +205,7 @@ void opcontrol() {
       
     }
   }
+    while (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+      hang();
+    }
   }
