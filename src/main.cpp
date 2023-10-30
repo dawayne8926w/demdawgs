@@ -93,6 +93,7 @@ void initialize() {
     Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
     Auton("Combine all 3 movements", combining_movements),
     Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
+    Auton("auton for mock competition", demdawgsv),
   });
 
   // Initialize chassis and auton selector
@@ -205,7 +206,10 @@ void opcontrol() {
       
     }
   }
-    while (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-      hang();
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+      hang(200);
+    }
+    else {
+    stop();
     }
   }

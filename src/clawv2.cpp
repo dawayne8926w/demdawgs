@@ -15,3 +15,7 @@ void down(int speed){
 void stop(){
     clawv2_motor.move_velocity(0);  // sets the speed of the motor to 0
 }
+
+void hang(int speed){
+clawv2_motor.move_velocity(speed);
+}
