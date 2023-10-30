@@ -261,9 +261,50 @@ void demdawgsv(){
   chassis.set_turn_pid(70, TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(50, DRIVE_SPEED, true);
+  clawopen(100);
+  pros::delay(500);
+  clawStop();
+
+  chassis.set_drive_pid(19, DRIVE_SPEED, true);
+  chassis.wait_drive();
+
+  clawclose(100);
+  pros::delay(500);
+  clawStop();
+
+  chassis.set_drive_pid(31, DRIVE_SPEED, true);
   chassis.wait_drive();
 
   chassis.set_swing_pid(ez::RIGHT_SWING, 0, TURN_SPEED);
+  chassis.wait_drive();
+
+  clawopen(100);
+  pros::delay(500);
+  clawStop();
+
+  chassis.set_drive_pid(5, DRIVE_SPEED, true);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-15, DRIVE_SPEED, true);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(90 , TURN_SPEED);
+  chassis.wait_drive();
+
+  up(150);
+  pros::delay(250);
+  stop();
+
+  chassis.set_drive_pid(23, DRIVE_SPEED, true);
+  chassis.wait_drive();
+
+  clawclose(100);
+  pros::delay(500);
+  clawStop();
+
+  chassis.set_drive_pid(-25, DRIVE_SPEED, true);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(90 , TURN_SPEED);
   chassis.wait_drive();
 }
