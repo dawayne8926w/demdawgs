@@ -28,7 +28,7 @@ Drive chassis (
   ,{-9}
 
   // IMU Port
-  ,6
+  ,10
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)
@@ -86,13 +86,13 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.add_autons({
-    Auton("Example Drive\n\nDrive forward and come back.", drive_example),
-    Auton("Example Turn\n\nTurn 3 times.", turn_example),
-    Auton("Drive and Turn\n\nDrive forward, turn, come back. ", drive_and_turn),
-    Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
-    Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
-    Auton("Combine all 3 movements", combining_movements),
-    Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
+    //Auton("Example Drive\n\nDrive forward and come back.", drive_example),
+    //Auton("Example Turn\n\nTurn 3 times.", turn_example),
+   // Auton("Drive and Turn\n\nDrive forward, turn, come back. ", drive_and_turn),
+   // Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
+   // Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
+    //Auton("Combine all 3 movements", combining_movements),
+    //Auton("Interference\n\nAfter driving forward, robot performs differently if interfered or not.", interfered_example),
     Auton("auton for mock competition", demdawgsv),
   });
 
@@ -206,10 +206,4 @@ void opcontrol() {
       
     }
   }
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-      hang(200);
-    }
-    else {
-    stop();
-    }
-  }
+}

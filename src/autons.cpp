@@ -17,7 +17,7 @@ const int DRIVE_SPEED = 90; // This is 110/127 (around 87% of max speed).  We do
                              // making one side slower.  When this is 87%, it's correcting by making one side
                              // faster and one side slower, giving better heading correction.
 const int TURN_SPEED  = 90;
-const int SWING_SPEED = 90;
+const int SWING_SPEED = 110;
 
 
 
@@ -258,6 +258,12 @@ void demdawgsv(){
   chassis.set_drive_pid(10, DRIVE_SPEED, true);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.set_turn_pid(70, TURN_SPEED);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(50, DRIVE_SPEED, true);
+  chassis.wait_drive();
+
+  chassis.set_swing_pid(ez::RIGHT_SWING, 0, TURN_SPEED);
   chassis.wait_drive();
 }
