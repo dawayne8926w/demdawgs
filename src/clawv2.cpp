@@ -20,3 +20,11 @@ void stop(){
 void hang(int speed){
 clawv2_motor.move_velocity(speed);
 }
+
+void degreeup(int degreesv) {
+    clawv2_motor.move_relative(degreesv, 100);
+}
+
+void degreedown(int degreesv) {
+    clawv2_motor.move_relative(-degreesv, 100);
+}
