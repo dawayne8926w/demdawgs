@@ -255,7 +255,7 @@ void interfered_example() {
 // . . .
 
 void demdawgsv(){
-  chassis.set_drive_pid(10, DRIVE_SPEED, true);
+  /*chassis.set_drive_pid(10, DRIVE_SPEED, true);
   chassis.wait_drive();
 
   chassis.set_turn_pid(70, TURN_SPEED);
@@ -291,7 +291,7 @@ void demdawgsv(){
   chassis.set_turn_pid(90 , TURN_SPEED);
   chassis.wait_drive();
 
-  up(150);
+  up(140);
   pros::delay(250);
   stop();
 
@@ -305,6 +305,8 @@ void demdawgsv(){
   chassis.set_drive_pid(-25, DRIVE_SPEED, true);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(90 , TURN_SPEED);
-  chassis.wait_drive();
+  chassis.set_turn_pid(0, TURN_SPEED);
+  chassis.wait_drive();*/
+
+  degreeup(10.0);
 }
