@@ -4,6 +4,7 @@
 
 
 pros::Motor clawv2_motor(3, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Rotation rotationv2(7);
 
 
 void up(int speed){
@@ -22,9 +23,15 @@ clawv2_motor.move_velocity(speed);
 }
 
 void degreeup(int degreesv) {
-    clawv2_motor.move_relative(degreesv, 100);
+    rotationv2.reset();
+if( rotationv2.get_position() < degreesv){
+    clawv2_motor.move_velocity(200);
+}
+else{
+    stop();
+}
 }
 
 void degreedown(int degreesv) {
-    clawv2_motor.move_relative(-degreesv, 100);
+    clawv2_motor.move_relative(-degreesv, 200);
 }

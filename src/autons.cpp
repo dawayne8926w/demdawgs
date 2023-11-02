@@ -255,7 +255,7 @@ void interfered_example() {
 // . . .
 
 void demdawgsv(){
-  chassis.set_drive_pid(10, DRIVE_SPEED, true);
+  /*chassis.set_drive_pid(10, DRIVE_SPEED, true);
   chassis.wait_drive();
 
   chassis.set_turn_pid(70, TURN_SPEED);
@@ -288,23 +288,26 @@ void demdawgsv(){
   chassis.set_drive_pid(-15, DRIVE_SPEED, true);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(90 , TURN_SPEED);
-  chassis.wait_drive();
+  chassis.set_turn_pid(90 , 60);
+  chassis.wait_drive();*/
 
-  degreeup(100);
+  degreeup(50);
 
-  chassis.set_drive_pid(23, DRIVE_SPEED, true);
+  /*pros::delay(1000); // stabilizes arm before picking pu basketballs
+
+  chassis.set_drive_pid(18, 40, true);
   chassis.wait_drive();
 
   clawclose(100);
   pros::delay(500);
   clawStop();
 
-  chassis.set_drive_pid(-25, DRIVE_SPEED, true);
+
+  chassis.set_drive_pid(-28, DRIVE_SPEED, true);
   chassis.wait_drive();
 
   chassis.set_turn_pid(0, TURN_SPEED);
-  chassis.wait_drive();
+  chassis.wait_drive();*/
 
   /*degreeup(105);// the amount of degrees to clear the wood block to pickup the basketballs
 
