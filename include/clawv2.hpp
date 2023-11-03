@@ -9,3 +9,4 @@ extern void stop();
 extern void hang(int speed);
 extern void degreeup(int degreesv);
 extern void degreedown(int degreesv);
+extern void resetv2();

@@ -23,15 +23,22 @@ clawv2_motor.move_velocity(speed);
 }
 
 void degreeup(int degreesv) {
-    rotationv2.reset();
-if( rotationv2.get_position() < degreesv){
-    clawv2_motor.move_velocity(200);
+while(rotationv2.get_position() < degreesv){
+    clawv2_motor.move_velocity(100);
 }
-else{
-    stop();
-}
+    clawv2_motor.move_velocity(0); // sets the speed of the motor to 0
+    clawv2_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
 
 void degreedown(int degreesv) {
-    clawv2_motor.move_relative(-degreesv, 200);
+
+while(rotationv2.get_position() > degreesv){
+    clawv2_motor.move_velocity(200);
+}
+clawv2_motor.move_velocity(0); // sets the speed of the motor to 0
+    clawv2_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+}
+
+void resetv2() {
+    rotationv2.reset_position();
 }
