@@ -99,7 +99,7 @@ void initialize() {
   // Initialize chassis and auton selector
   chassis.initialize();
   ez::as::initialize();
-}
+  }
 
 
 
