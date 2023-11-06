@@ -76,7 +76,7 @@ void initialize() {
   // Configure your chassis controls
   chassis.toggle_modify_curve_with_controller(true); // Enables modifying the controller curve with buttons on the joysticks
   chassis.set_active_brake(0.1); // Sets the active brake kP. We recommend 0.1.
-  chassis.set_curve_default(0/15, 0.9999999); // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)  
+  chassis.set_curve_default(0.75, 0.9999999); // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)  
   default_constants(); // Set the drive to your own constants from autons.cpp!
   exit_condition_defaults(); // Set the exit conditions to your own constants from autons.cpp!
 
@@ -196,10 +196,10 @@ void opcontrol() {
 
 
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      up(50);  // Intake forward if R2 is pressed
+      up(100);  // Intake forward if R2 is pressed
     }
     else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      down(50); // Intake backward if R1 is pressed
+      down(100); // Intake backward if R1 is pressed
     }
     else {
       stop();  // Stop intake
