@@ -15,4 +15,5 @@ void clawopen(int speed){
 }
 void clawStop(){
     claw_motor.move_velocity(0);  // sets the speed of the motor to 0
+    claw_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }

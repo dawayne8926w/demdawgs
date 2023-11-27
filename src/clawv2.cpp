@@ -4,7 +4,7 @@
 
 
 pros::Motor clawv2_motor(3, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::Rotation rotationv2(7);
+pros::Rotation rotationv2(5);
 
 
 void up(int speed){
