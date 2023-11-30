@@ -183,11 +183,11 @@ void opcontrol() {
 
 
         //claw control
-        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-      clawclose(75);  // Intake forward if R2 is pressed
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+      clawclose(600);  // Intake forward if R2 is pressed
     }
-    else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      clawopen(75); // Intake backward if R1 is pressed
+    else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+      clawopen(600); // Intake backward if R1 is pressed
     }
     else {
       clawStop();  // Stop intake

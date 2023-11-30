@@ -16,7 +16,7 @@ const int DRIVE_SPEED = 90; // This is 110/127 (around 87% of max speed).  We do
                              // If this is 127 and the robot tries to heading correct, it's only correcting by
                              // making one side slower.  When this is 87%, it's correcting by making one side
                              // faster and one side slower, giving better heading correction.
-const int TURN_SPEED  = 90;
+const int TURN_SPEED  = 110;
 const int SWING_SPEED = 110;
 
 
@@ -257,86 +257,37 @@ void interfered_example() {
 void demdawgsv(){
 
   resetv2();
-  chassis.set_drive_pid(10, 127, true);
+  clawclose(600);
+  degreeup(100);
+  chassis.set_drive_pid(37, 127 ,true);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(68, TURN_SPEED);
+  chassis.set_drive_pid(-15, 127 ,true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
   chassis.wait_drive();
 
-  clawopen(100);
-  pros::delay(500);
-  clawStop();
+  clawopen(600);
 
-  chassis.set_drive_pid(19, DRIVE_SPEED, true);
+  degreeup(965);
+pros::delay(250);
+  chassis.set_drive_pid(5, 50 ,true);
   chassis.wait_drive();
 
-  clawclose(100);
-  pros::delay(500);
-  clawStop();
-
-  chassis.set_drive_pid(31, DRIVE_SPEED, true);
+chassis.set_drive_pid(3, 50 ,true);
   chassis.wait_drive();
 
-  chassis.set_swing_pid(ez::RIGHT_SWING, 0, TURN_SPEED);
+  chassis.set_drive_pid(-40, 127 ,true);
   chassis.wait_drive();
 
-  clawopen(100);
-  pros::delay(500);
-  clawStop();
+  degreeup(10000);
 
-  chassis.set_drive_pid(5, DRIVE_SPEED, true);
+  chassis.set_turn_pid(27, TURN_SPEED);
   chassis.wait_drive();
 
-  /*chassis.set_drive_pid(-15, DRIVE_SPEED, true);
+  chassis.set_drive_pid(15, 127 ,true);
   chassis.wait_drive();
+pros::delay(500);
+clawclose(600);
 
-  chassis.set_turn_pid(90 , 40);
-  chassis.wait_drive();
-
-  degreeup(875);
-
-  pros::delay(1000); // stabilizes arm before picking pu basketballs
-
-  chassis.set_drive_pid(16, 40, true);
-  chassis.wait_drive();
-
-  clawclose(100);
-  pros::delay(500);
-  clawStop();
-
-
-  chassis.set_drive_pid(-31, DRIVE_SPEED, true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(0, TURN_SPEED);
-  chassis.wait_drive();
-
-  degreeup(8500);
-
-  pros::delay(1000); 
-
-  chassis.set_drive_pid(28, DRIVE_SPEED, true);
-  chassis.wait_drive();
-
-  clawopen(100);
-  pros::delay(500);
-  clawStop();*/
-
-
-
-  /*degreeup(105);// the amount of degrees to clear the wood block to pickup the basketballs
-
-  pros::delay(1000); // stabilizes arm before picking pu basketballs
-
-  chassis.set_drive_pid(10, 50, true); // 50 is the speed of which to not knock over the basketballs
-  chassis.wait_drive();
-  
-  clawclose(100);
-  pros::delay(500);
-  clawStop();
-
-  chassis.set_drive_pid(-10, 50, true);
-  chassis.wait_drive();
-
-  degreeup(105);*/
 }

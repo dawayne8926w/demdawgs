@@ -4,7 +4,7 @@
 
 
 
-pros::Motor claw_motor(8, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);  // sets up the motor for the intake
+pros::Motor claw_motor(10, pros::E_MOTOR_GEARSET_06, false, pros::E_MOTOR_ENCODER_DEGREES);  // sets up the motor for the intake
 
 
 void clawclose(int speed){
@@ -15,5 +15,4 @@ void clawopen(int speed){
 }
 void clawStop(){
     claw_motor.move_velocity(0);  // sets the speed of the motor to 0
-    claw_motor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
