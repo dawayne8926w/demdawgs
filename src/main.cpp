@@ -196,13 +196,13 @@ void opcontrol() {
 
 
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      up(100);  // Intake forward if R2 is pressed
+      up(100);  // lift up if L1 is pressed
     }
     else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      down(100); // Intake backward if R1 is pressed
+      down(100); // lift down if L2 is pressed
     }
     else {
-      stop();  // Stop intake
+      stop();  // lift stops
       
     }
   }
